@@ -3,14 +3,9 @@ import numpy as np
 import numba as nb
 from numba import jit
 import json
-import numpy as np
 import math
-import random
-from numba import jit
-import numba as nb
 from itertools import product
 import os
-import json
 
 
 #set directory
@@ -90,16 +85,6 @@ def Bacterial_sim(i0, j0, lattice,p , nbacteria):
         lattice[i, j] = 1
         
 
-        
-        
-
-
-
-
-#Events in the sim
-
-
-
 #nothing happens
 events0=[(0,0,0,0,0,0,0)]
 
@@ -145,7 +130,6 @@ A1):
     
     #Intializing time steps
     ns   = 0
-    time = 0
     
     #Number of events
     no_events = np.arange(0,15,1)
@@ -258,6 +242,7 @@ b1_vec = np.arange(1, 11, 1)
 b2_vec = np.arange(1, 11, 1)
 b5_vec = np.arange(1, 11, 1)
 q_vec  = np.arange(0.1, 1.1, 0.1)
+#10,000 combination of parameter values
 combos_background = np.round(list(product(b1_vec, b2_vec, b5_vec, q_vec)),1)
 
 
@@ -265,6 +250,8 @@ combos_background = np.round(list(product(b1_vec, b2_vec, b5_vec, q_vec)),1)
 size = 1000
 m = 100
 iterations = 10000
+
+#initital conditions and fixed values for the negative regulators
 k0 = 0.1
 b3 = 10
 b4 = 10
